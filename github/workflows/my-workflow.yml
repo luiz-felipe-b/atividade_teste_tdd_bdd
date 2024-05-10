@@ -1,0 +1,17 @@
+name: Continuous Integration
+
+on: pull_request
+
+jobs:
+  continuous-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Using Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.
+      - name: run install and test
+        run: |
+          pytest
